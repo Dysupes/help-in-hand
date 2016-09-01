@@ -73,16 +73,16 @@ function triageNext() {
 
     if (triagePatient) {
       triageCounselor.isFree = false;
-      
+
       connections[triagePatient.id] = triageCounselor;
-      //inside connections object, it is being assigned a key which is triagePatient.id, 
+      //inside connections object, it is being assigned a key which is triagePatient.id,
       //and the value is triageCounselor
-      
+
       connections[triageCounselor.id] = triagePatient;
-      
+
       triagePatient.emit('start stream');
       triageCounselor.emit('start stream', triagePatient.formInfo);
-      
+
       // console.log('EMITTING this from triageNext to the triageCounselor ', triageCounselor.triageFormInfo);
       console.log('connected: triage counselor with patient');
     }
@@ -95,23 +95,8 @@ function triageNext() {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 io.on('connection', function(socket) {
-  
+
   socket.on('triage patient', function(data) {
     socket.formInfo = data;
     socket.isPatient = true;
@@ -199,7 +184,7 @@ io.on('connection', function(socket) {
 
     triageNext();
   });
-  
+
   socket.on('patient ended conversation', function() {
     console.log('server heard that the patient stopped call');
     var counselorSocket = connections[socket.id];
@@ -241,7 +226,7 @@ io.on('connection', function(socket) {
 
 app.post("/contactUs", function(req, res){
   // setup e-mail data with unicode symbols
-  
+
   console.log(req);
   var mailOptions = {
       from: '"Help in Hand" <robot@helpinhand.com>', // sender address
@@ -255,7 +240,7 @@ app.post("/contactUs", function(req, res){
 <p>Message: ${req.body.message}</p>
   ` // html body
   };
-  
+
   // send mail with defined transport object
   transporter.sendMail(mailOptions, function(error, info){
       if(error){
