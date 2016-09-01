@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/takanarisasaki/help-in-hand.git"
+    "url": "git+https://github.com/Dysupes/Help-In-Hand.git"
   },
-  "author": "takanarisasaki",
+  "author": "Dysupes",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/takanarisasaki/help-in-hand/issues"
+    "url": "https://github.com/Dysupes/Help-In-Hand/issues"
   },
-  "homepage": "https://github.com/takanarisasaki/help-in-hand#readme",
+  "homepage": "https://github.com/Dysupes/Help-In-Hand#readme",
   "dependencies": {
     "axios": "^0.13.1",
     "babel-core": "^6.13.2",
