@@ -3,6 +3,7 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var nodemailer = require('nodemailer');
+var port = process.env.PORT || 3000;
 
 // create reusable transporter object using the default SMTP transport
 var transporter = nodemailer.createTransport('smtps://helpinhandproject2016%40gmail.com:tkdproject2016@smtp.gmail.com');
@@ -256,6 +257,6 @@ app.get('/*', function(req, res) {
   res.sendFile(__dirname + '/public/index.html');
 });
 
-http.listen(process.env.PORT, function() {
-  console.log('listening on', process.env.PORT);
+http.listen(port, function() {
+  console.log('listening on', port);
 });
